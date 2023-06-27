@@ -22,10 +22,12 @@ const GetOptions = ({ navigation }) => {
         OptionNameEnum.CameraControlSource,
         OptionNameEnum.CameraMode,
         OptionNameEnum.PowerSaving,
-        OptionNameEnum.CaptureMode,
+        OptionNameEnum.PreviewFormat,
+        OptionNameEnum.ShutterSpeed,
+        OptionNameEnum.WlanFrequency,
       ]);
 
-      setOptionNames(JSON.stringify(result));
+      setOptionNames(JSON.stringify(result,null, 2));
     };
 
     fetchOptions();
