@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Image,
@@ -13,27 +13,26 @@ import {
   getOptions,
 } from 'theta-client-react-native';
 
-const GetOptions = async ({navigation}) => {
+const GetOptions = ({ navigation }) => {
+  const [optionNames, setOptionNames] = useState([]);
 
-  let optionNames: OptionNameEnum[] = [
-    OptionNameEnum.Aperture,
-    OptionNameEnum.CaptureMode,
-    OptionNameEnum.ColorTemperature
-  ];
+  useEffect(() => {
+    const fetchOptions = async () => {
+      const result = await getOptions([
+        OptionNameEnum.CameraControlSource,
+        OptionNameEnum.CameraMode,
+        OptionNameEnum.PowerSaving,
+        OptionNameEnum.CaptureMode,
+      ]);
 
+      setOptionNames(JSON.stringify(result));
+    };
 
-  await getOptions(optionNames)
-    .then(option => {
-      console.log("Capture Mode: " + option);
-    })
-    .catch(error => {
-      // handle error
-    });  
-
-
+    fetchOptions();
+  }, []);
 
   return (
-    <Text>Hello</Text>
+    <Text>{optionNames}</Text>
   );
 };
 
