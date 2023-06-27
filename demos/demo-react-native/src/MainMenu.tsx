@@ -11,6 +11,9 @@ const MainMenu = ({navigation}) => {
   const goList = () => {
     navigation.navigate('list');
   };
+  const goOptions = () => {
+    navigation.navigate('options');
+  }
   React.useEffect(() => {
     async function init() {
       const endpoint = 'http://192.168.1.1'
@@ -34,6 +37,11 @@ const MainMenu = ({navigation}) => {
       <TouchableOpacity style={styles.buttonBack} onPress={goList}>
         <Text style={styles.button}>List Photos</Text>
       </TouchableOpacity>
+      <View style={styles.spacer} />
+      <TouchableOpacity style={styles.buttonBack} onPress={goOptions}>
+        <Text style={styles.button}>Get Options</Text>
+      </TouchableOpacity>
+
     </SafeAreaView>
   );
 };

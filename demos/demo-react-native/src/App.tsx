@@ -5,6 +5,7 @@ import MainMenu from './MainMenu';
 import TakePhoto from './TakePhoto';
 import ListPhotos from './ListPhotos';
 import PhotoSphere from './PhotoSphere';
+import GetOptions from './GetOptions';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,9 +25,14 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen
-          options={{title: 'Theta SDK sample app'}}
+          options={{title: 'Theta SDK Erik app'}}
           name="main"
           component={MainMenu}
+        />
+        <Stack.Screen
+          options={{title: 'Get Options'}}
+          name="options"
+          component={GetOptions}
         />
         <Stack.Screen
           options={{title: 'Take Photo'}}
@@ -43,6 +49,7 @@ const App = () => {
           name="sphere"
           component={PhotoSphere}
         />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
