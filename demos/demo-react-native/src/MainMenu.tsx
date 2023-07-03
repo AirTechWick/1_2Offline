@@ -17,6 +17,7 @@ const MainMenu = ({navigation}) => {
   React.useEffect(() => {
     async function init() {
       const endpoint = 'http://192.168.1.1'
+      //const endpoint = 'https://fake-theta.vercel.app' 
       const config = {
         // clientMode: { // Client mode authentication settings
         //   username: 'THETAXX12345678',
